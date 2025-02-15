@@ -208,6 +208,16 @@ impl Devenv {
         exclude: Vec<PathBuf>,
         disable_telemetry: bool,
     ) -> Result<()> {
+        // This ensures that -- if the user prefers _not_ to upload their potentially sensitive
+        // data to arbitrary servers owned by people with whom they have no formal relationship,
+        // that their data doesn't leave their machine.
+        if disable_telemetry {
+            info!(
+                "Telemetry is disabled, this function cannot be used unless telemetry is enabled"
+            );
+            return Ok(());
+        }
+
         let client = reqwest::Client::new();
         let mut request = client
             .post(host)
