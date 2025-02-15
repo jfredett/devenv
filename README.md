@@ -8,6 +8,43 @@
   </a>
 </p>
 
+# FORKED VERSION
+
+This fork removes all functionality related to uploading data. You are welcome to use this fork if you like, it will
+result in a relatively long first compile of the devenv rust code. I make no promises with respect to maintenance or
+warranty, I maintain this primarily for my own purposes and when I have migrated off of devenv (which you should do as
+well, given the disgraceful behavior of it's maintainers adding this useless, borderline malicious[1] functionality in the
+first place) I will archive this repository.
+
+Thanks for playing, good luck avoiding the enshittification of everything else on the internet.
+
+---
+
+
+[1] To be clear, the original version of this code added functionality that:
+
+1. tarred up every file in your repository via `git ls-files`.
+2. Sent it to an unknown server, ostensibly owned by the devenv people (cachix, I suppose?)
+3. Fed it to an AI.
+
+If you set DO_NOT_TRACK, it would simply tag the request with a 'don't use this for telemetry' flag and _still send it
+to the third party._
+
+It shouldn't take you more than 2 minutes to understand why that's profoundly stupid in the least, and so we're left
+with two options.
+
+1. The original maintainers are so profoundly braindead stupid that they would not once think about what the
+   implications of the decision to send all of your code to a third party would be.
+2. They knew, and didn't care.
+
+In the case of the first, then you probably shouldn't use code written by such profound idiots.
+If the latter, then you probably shouldn't use code written by such profound assholes.
+
+In either case, you should probably migrate off of devenv as soon as possible. You should, further, not trust me either,
+but fortunately for you I don't run any telemetry servers and you can look at the top two commits of this repo.
+
+To the original authors, shame on you.
+
 # [devenv.sh](https://devenv.sh) - Fast, Declarative, Reproducible, and Composable Developer Environments
 
 [![Built with Nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
